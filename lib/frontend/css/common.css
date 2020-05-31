@@ -7,5 +7,23 @@
 }
 
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner p{
+    display: flex;
+    align-items: center;
     margin:0;
+}
+
+.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner svg{
+    width: 20px;
+    fill: white;
+    margin-right: 7px;
+}
+
+.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner a{
+    color:white;
+    text-decoration:none;
+}
+
+.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner a:hover{
+    color:white;
+    text-decoration:underline;
 }
