@@ -36,12 +36,20 @@
 		protected function load_settings_general(): sv_header_bar {
 			// General
 			$this->get_setting( 'max_width' )
-				->set_title( __( 'Max Width', 'sv100' ) )
-				->set_description( __( 'Set the max width of the Header', 'sv100' ) )
+				->set_title( __( 'Max Width Container', 'sv100' ) )
+				->set_description( __( 'Set the max width of the sidebar container.', 'sv100' ) )
 				->set_options( $this->get_module( 'sv_common' )->get_max_width_options() )
-				->set_default_value( '1300px' )
+				->set_default_value( '100vw' )
 				->set_is_responsive( true )
 				->load_type( 'select' );
+			
+			$this->get_setting( 'max_width_inner' )
+			     ->set_title( __( 'Max Width Inner', 'sv100' ) )
+			     ->set_description( __( 'Set the max width of the sidebar inner.', 'sv100' ) )
+			     ->set_options( $this->get_module( 'sv_common' )->get_max_width_options() )
+			     ->set_default_value( '1300px' )
+			     ->set_is_responsive( true )
+			     ->load_type( 'select' );
 
 			// Font
 			$this->get_setting( 'font' )

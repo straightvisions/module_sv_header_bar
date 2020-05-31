@@ -5,3 +5,7 @@
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner {
     display: flex;
 }
+
+.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner p{
+    margin:0;
+}

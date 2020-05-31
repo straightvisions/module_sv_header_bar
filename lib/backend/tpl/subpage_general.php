@@ -6,6 +6,9 @@
 		<?php
 		echo $module->get_setting( 'max_width' )->form();
 		?>
+		<?php
+			echo $module->get_setting( 'max_width_inner' )->form();
+		?>
     </div>
 
     <h3 class="divider"><?php _e( 'Font', 'sv100' ); ?></h3>
