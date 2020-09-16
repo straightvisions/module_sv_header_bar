@@ -38,7 +38,7 @@
 			$this->get_setting( 'max_width' )
 				->set_title( __( 'Max Width Container', 'sv100' ) )
 				->set_description( __( 'Set the max width of the sidebar container.', 'sv100' ) )
-				->set_options( $this->get_module( 'sv_common' )->get_max_width_options() )
+				->set_options( $this->get_module('sv_common') ? $this->get_module('sv_common')->get_max_width_options() : array('' => __('Please activate module SV Common for this Feature.', 'sv100')) )
 				->set_default_value( '100vw' )
 				->set_is_responsive( true )
 				->load_type( 'select' );
@@ -46,7 +46,7 @@
 			$this->get_setting( 'max_width_inner' )
 			     ->set_title( __( 'Max Width Inner', 'sv100' ) )
 			     ->set_description( __( 'Set the max width of the sidebar inner.', 'sv100' ) )
-			     ->set_options( $this->get_module( 'sv_common' )->get_max_width_options() )
+			     ->set_options( $this->get_module('sv_common') ? $this->get_module('sv_common')->get_max_width_options() : array('' => __('Please activate module SV Common for this Feature.', 'sv100')) )
 			     ->set_default_value( '1300px' )
 			     ->set_is_responsive( true )
 			     ->load_type( 'select' );
@@ -55,7 +55,7 @@
 			$this->get_setting( 'font' )
 				->set_title( __( 'Font Family', 'sv100' ) )
 				->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				->set_is_responsive( true )
 				->load_type( 'select' );
 
