@@ -15,8 +15,6 @@
 		public function init() {
 			$this->set_module_title( __( 'SV Header Bar', 'sv100' ) )
 				->set_module_desc( __( 'Manages the header bar.', 'sv100' ) )
-				->load_settings()
-				->register_scripts()
 				->register_sidebars()
 				->set_section_title( __( 'Header Bar', 'sv100' ) )
 				->set_section_desc( __( 'Widget & Color Settings', 'sv100' ) )
@@ -221,6 +219,10 @@
 		// Loads the templates
 		protected function load_template( array $settings ): string {
 			if ( ! $this->has_header_content() ) return '';
+
+			if(!is_admin()){
+				$this->load_settings()->register_scripts();
+			}
 
 			ob_start();
 
