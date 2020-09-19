@@ -2,19 +2,19 @@
 // columns outer ---------------------------------------------------------------------------------------------------
 $prepared_properties = array();
 for($i = 1; $i < 3; $i++){
-	if(${'sidebar_'.$i.'_alignment'}) {
-		$prepared_properties[$i] = $setting->prepare_css_property_responsive(${'sidebar_' . $i . '_alignment'});
+	if($script->get_parent()->get_setting('sidebar_' . $i . '_alignment')) {
+		$prepared_properties[$i] = $_s->prepare_css_property_responsive($script->get_parent()->get_setting('sidebar_' . $i . '_alignment'));
 	}
 }
 for($i = 1; $i < 3; $i++){
 	$properties					= array();
 
-	if(${'sidebar_'.$i.'_alignment_content'}){
+	if($script->get_parent()->get_setting('sidebar_' . $i . '_alignment_content')){
 		// inner stuff
-		$properties['text-align'] 		= $setting->prepare_css_property_responsive(${'sidebar_' . $i . '_alignment_content'});
+		$properties['text-align'] 		= $_s->prepare_css_property_responsive($script->get_parent()->get_setting('sidebar_' . $i . '_alignment_content'));
 	}
 
-	if(${'sidebar_'.$i.'_alignment'}){
+	if($script->get_parent()->get_setting('sidebar_' . $i . '_alignment')){
 
 		// outer stuff
 		$properties['justify-self'] = array(); // row
@@ -29,7 +29,7 @@ for($i = 1; $i < 3; $i++){
 			$properties['align-self'][$key]		= 'unset';
 
 			// flex hacks to simulate parent justify content and add more options
-			if( isset($direction[$key]) && $direction[$key] === 'row' ) {
+			if( isset($script->get_parent()->get_setting('direction')[$key]) && $script->get_parent()->get_setting('direction')[$key] === 'row' ) {
 
 				if( $value === 'flex-start' && isset($prepared_properties[$i+1]) && $prepared_properties[$i+1][$key] != 'flex-start'){
 					$properties['margin-right'][$key] = 'auto';
@@ -48,7 +48,7 @@ for($i = 1; $i < 3; $i++){
 			}
 
 			// column direction doesn't need any hacks ;)
-			if( isset($direction[$key]) && $direction[$key] === 'column' ) {
+			if( isset($script->get_parent()->get_setting('direction')[$key]) && $script->get_parent()->get_setting('direction')[$key] === 'column' ) {
 				$properties['align-self'][$key] 	= $value;
 				$properties['margin-left'][$key] 	= '0';
 				$properties['margin-right'][$key] 	= '0';
@@ -58,7 +58,7 @@ for($i = 1; $i < 3; $i++){
 
 	}
 
-	echo $setting->build_css(
+	echo $_s->build_css(
 		'.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner > .sv100_sv_sidebar_sv_header_bar_' . $i,
 		$properties
 	);
