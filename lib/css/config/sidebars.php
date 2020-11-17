@@ -2,19 +2,19 @@
 // columns outer ---------------------------------------------------------------------------------------------------
 $prepared_properties = array();
 for($i = 1; $i < 3; $i++){
-	if($module->get_setting('sidebar_' . $i . '_alignment')) {
-		$prepared_properties[$i] = $_s->prepare_css_property_responsive($module->get_setting('sidebar_' . $i . '_alignment'));
+	if($module->get_setting('sidebar_' . $i . '_alignment')->get_data()) {
+		$prepared_properties[$i] = $_s->prepare_css_property_responsive($module->get_setting('sidebar_' . $i . '_alignment')->get_data());
 	}
 }
 for($i = 1; $i < 3; $i++){
 	$properties					= array();
 
-	if($module->get_setting('sidebar_' . $i . '_alignment_content')){
+	if($module->get_setting('sidebar_' . $i . '_alignment_content')->get_data()){
 		// inner stuff
-		$properties['text-align'] 		= $_s->prepare_css_property_responsive($module->get_setting('sidebar_' . $i . '_alignment_content'));
+		$properties['text-align'] 		= $_s->prepare_css_property_responsive($module->get_setting('sidebar_' . $i . '_alignment_content')->get_data());
 	}
 
-	if($module->get_setting('sidebar_' . $i . '_alignment')){
+	if($module->get_setting('sidebar_' . $i . '_alignment')->get_data()){
 
 		// outer stuff
 		$properties['justify-self'] = array(); // row
@@ -29,7 +29,7 @@ for($i = 1; $i < 3; $i++){
 			$properties['align-self'][$key]		= 'unset';
 
 			// flex hacks to simulate parent justify content and add more options
-			if( isset($module->get_setting('direction')[$key]) && $module->get_setting('direction')[$key] === 'row' ) {
+			if( isset($module->get_setting('direction')->get_data()[$key]) && $module->get_setting('direction')->get_data()[$key] === 'row' ) {
 
 				if( $value === 'flex-start' && isset($prepared_properties[$i+1]) && $prepared_properties[$i+1][$key] != 'flex-start'){
 					$properties['margin-right'][$key] = 'auto';
@@ -48,7 +48,7 @@ for($i = 1; $i < 3; $i++){
 			}
 
 			// column direction doesn't need any hacks ;)
-			if( isset($module->get_setting('direction')[$key]) && $module->get_setting('direction')[$key] === 'column' ) {
+			if( isset($module->get_setting('direction')->get_data()[$key]) && $module->get_setting('direction')->get_data()[$key] === 'column' ) {
 				$properties['align-self'][$key] 	= $value;
 				$properties['margin-left'][$key] 	= '0';
 				$properties['margin-right'][$key] 	= '0';
