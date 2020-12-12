@@ -15,7 +15,7 @@
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner svg{
 	width: 20px;
 	fill: white;
-	margin-right: 7px;
+	margin: 0 3px 0 3px;
 }
 
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner a{
