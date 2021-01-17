@@ -122,7 +122,7 @@
 
 			for ( $i = 1; $i < 3; $i++ ) {
 				$this->get_setting( 'sidebar_' . $i . '_alignment' )
-					->set_title( __( 'Copyright - ' . $i, 'sv100' ) )
+					->set_title( __( 'Header Bar - ' . $i, 'sv100' ) )
 					->set_options( array(
 						'flex-start'	=> __( 'Left', 'sv100' ),
 						'center'		=> __( 'Center', 'sv100' ),
@@ -135,7 +135,7 @@
 
 			for ( $i = 1; $i < 3; $i++ ) {
 				$this->get_setting( 'sidebar_' . $i . '_alignment_content' )
-					->set_title( __( 'Copyright - ' . $i, 'sv100' ) )
+					->set_title( __( 'Header Bar - ' . $i, 'sv100' ) )
 					->set_options( array(
 						'left'	    => __( 'Left', 'sv100' ),
 						'center'	=> __( 'Center', 'sv100' ),
