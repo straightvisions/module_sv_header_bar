@@ -23,8 +23,8 @@ for($i = 1; $i < 3; $i++){
 		$properties['margin-right'] = array();
 
 		foreach($prepared_properties[$i] as $key => $value) {
-			$properties['margin-left'][$key]	= '15px';
-			$properties['margin-right'][$key]	= '15px';
+			$properties['margin-left'][$key]	= '0';
+			$properties['margin-right'][$key]	= '0';
 			$properties['justify-self'][$key]	= 'unset';
 			$properties['align-self'][$key]		= 'unset';
 

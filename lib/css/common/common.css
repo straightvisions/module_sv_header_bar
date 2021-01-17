@@ -1,3 +1,4 @@
+/* there is a another heahder bar in SV Header , don't get confused */
 .sv100_sv_header_bar_wrapper {
 	width: 100%;
 }
@@ -18,12 +19,3 @@
 	margin: 0 3px 0 3px;
 }
 
-.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner a{
-	color:white;
-	text-decoration:none;
-}
-
-.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner a:hover{
-	color:white;
-	text-decoration:underline;
-}

@@ -17,7 +17,7 @@
 		}
 		
 		protected function load_settings(): sv_header_bar {
-			$this->load_settings_general()->load_settings_sidebars();
+			$this->load_settings_general()->load_settings_sidebars()->register_scripts();
 
 			return $this;
 		}
@@ -103,6 +103,42 @@
 				->set_title( __( 'Border', 'sv100' ) )
 				->set_description( __( 'Border', 'sv100' ) )
 				->load_type( 'border' );
+			
+			// link colors
+			$this->get_setting( 'text_color_link' )
+			     ->set_title( __( 'Link Color', 'sv100' ) )
+			     ->set_default_value( '50,140,230,1' )
+			     ->set_is_responsive(true)
+			     ->load_type( 'color' );
+			
+			$this->get_setting( 'text_deco_link' )
+			     ->set_title( __( 'Link Decoration', 'sv100' ) )
+			     ->set_default_value( 'underline' )
+			     ->set_is_responsive(true)
+			     ->set_options( array(
+				     'none'					=> __( 'None', 'sv100' ),
+				     'underline'			=> __( 'Underline', 'sv100' ),
+				     'underline_dashed'	=> __( 'Underline Dashed', 'sv100' ),
+			     ) )
+			     ->load_type( 'select' );
+			
+			// Link Settings (Hover/Focus)
+			$this->get_setting( 'text_color_link_hover' )
+			     ->set_title( __( 'Link Color', 'sv100' ) )
+			     ->set_default_value( '50,140,230,1' )
+			     ->set_is_responsive(true)
+			     ->load_type( 'color' );
+			
+			$this->get_setting( 'text_deco_link_hover' )
+			     ->set_title( __( 'Link Decoration', 'sv100' ) )
+			     ->set_default_value( 'none' )
+			     ->set_options( array(
+				     'none'					=> __( 'None', 'sv100' ),
+				     'underline'			=> __( 'Underline', 'sv100' ),
+				     'underline_dashed'	=> __( 'Underline Dashed', 'sv100' ),
+			     ) )
+			     ->set_is_responsive(true)
+			     ->load_type( 'select' );
 
 			return $this;
 		}
@@ -148,6 +184,18 @@
 
 			return $this;
 		}
+		
+		protected function register_scripts(): sv_header_bar {
+			parent::register_scripts();
+			
+			// Register Styles
+			$this->get_script( 'sidebar_default' )
+			     ->set_path( 'lib/css/common/sidebars.css' )
+			     ->set_inline( true );
+			
+			return $this;
+		}
+		
 		protected function register_sidebars(): sv_header_bar {
 			if ( $this->get_module( 'sv_sidebar' ) ) {
 				$this->get_module( 'sv_sidebar' )
