@@ -199,14 +199,12 @@
 		protected function register_sidebars(): sv_header_bar {
 			if ( $this->get_module( 'sv_sidebar' ) ) {
 				$this->get_module( 'sv_sidebar' )
-					->create( $this )
-					->set_ID( 1 )
+					->create( $this, $this->get_prefix(1) )
 					->set_title( __( 'Header Bar - 1', 'sv100' ) )
 					->set_desc( __( 'Widgets in this sidebar will be shown.', 'sv100' ) )
 					->load_sidebar()
 
-					->create( $this )
-					->set_ID( 2 )
+					->create( $this, $this->get_prefix(2) )
 					->set_title( __( 'Header Bar - 2', 'sv100' ) )
 					->set_desc( __( 'Widgets in this sidebar will be shown.', 'sv100' ) )
 					->load_sidebar();
@@ -220,7 +218,7 @@
 			if ( $this->get_module( 'sv_sidebar' ) ) {
 
 				for ( $i = 1; $i < 3; $i++ ) {
-					if ( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_'.$i ) ) ) {
+					if ( $this->get_module( 'sv_sidebar' )->load( $this->get_prefix($i) ) ) {
 						$check = true;
 					}
 				}
