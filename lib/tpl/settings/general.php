@@ -28,21 +28,21 @@
 			?>
 		</div>
 
-        <h3 class="divider"><?php _e( 'Link Settings', 'sv100' ); ?></h3>
-        <div class="sv_setting_flex">
+		<h3 class="divider"><?php _e( 'Link Settings', 'sv100' ); ?></h3>
+		<div class="sv_setting_flex">
 			<?php
 				echo $module->get_setting( 'text_color_link' )->form();
 				echo $module->get_setting( 'text_deco_link' )->form();
 			?>
-        </div>
+		</div>
 
-        <h3 class="divider"><?php _e( 'Link Settings (Hover/Focus)', 'sv100' ); ?></h3>
-        <div class="sv_setting_flex">
+		<h3 class="divider"><?php _e( 'Link Settings (Hover/Focus)', 'sv100' ); ?></h3>
+		<div class="sv_setting_flex">
 			<?php
 				echo $module->get_setting( 'text_color_link_hover' )->form();
 				echo $module->get_setting( 'text_deco_link_hover' )->form();
 			?>
-        </div>
+		</div>
 
 		<h3 class="divider"><?php _e( 'Spacing', 'sv100' ); ?></h3>
 		<div class="sv_setting_flex">

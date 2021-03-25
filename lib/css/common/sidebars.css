@@ -1,10 +1,10 @@
 
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner .sv100_sv_sidebar .widget_nav_menu ul.menu{
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
 }
 
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner .sv100_sv_sidebar .widget_nav_menu ul.menu > li{
-    margin-right: 10px;
+	margin-right: 10px;
 }

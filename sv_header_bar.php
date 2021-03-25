@@ -33,12 +33,12 @@
 				->load_type( 'select' );
 			
 			$this->get_setting( 'max_width_inner' )
-			     ->set_title( __( 'Max Width Inner', 'sv100' ) )
-			     ->set_description( __( 'Set the max width of the sidebar inner.', 'sv100' ) )
-			     ->set_options( $this->get_module('sv_common') ? $this->get_module('sv_common')->get_max_width_options() : array('' => __('Please activate module SV Common for this Feature.', 'sv100')) )
-			     ->set_default_value( '1300px' )
-			     ->set_is_responsive( true )
-			     ->load_type( 'select' );
+				 ->set_title( __( 'Max Width Inner', 'sv100' ) )
+				 ->set_description( __( 'Set the max width of the sidebar inner.', 'sv100' ) )
+				 ->set_options( $this->get_module('sv_common') ? $this->get_module('sv_common')->get_max_width_options() : array('' => __('Please activate module SV Common for this Feature.', 'sv100')) )
+				 ->set_default_value( '1300px' )
+				 ->set_is_responsive( true )
+				 ->load_type( 'select' );
 
 			// Font
 			$this->get_setting( 'font' )
@@ -80,10 +80,10 @@
 				->set_title( __( 'Margin', 'sv100' ) )
 				->set_is_responsive( true )
 				->set_default_value( array(
-					'top'       => '0',
-					'right'     => 'auto',
-					'bottom'    => '0',
-					'left'      => 'auto',
+					'top'	   => '0',
+					'right'	 => 'auto',
+					'bottom'	=> '0',
+					'left'	  => 'auto',
 				) )
 				->load_type( 'margin' );
 
@@ -91,10 +91,10 @@
 				->set_title( __( 'Padding', 'sv100' ) )
 				->set_is_responsive( true )
 				->set_default_value( array(
-					'top'       => '10px',
-					'right'     => '15px',
-					'bottom'    => '10px',
-					'left'      => '15px',
+					'top'	   => '10px',
+					'right'	 => '15px',
+					'bottom'	=> '10px',
+					'left'	  => '15px',
 				) )
 				->load_type( 'margin' );
 
@@ -106,39 +106,39 @@
 			
 			// link colors
 			$this->get_setting( 'text_color_link' )
-			     ->set_title( __( 'Link Color', 'sv100' ) )
-			     ->set_default_value( '50,140,230,1' )
-			     ->set_is_responsive(true)
-			     ->load_type( 'color' );
+				 ->set_title( __( 'Link Color', 'sv100' ) )
+				 ->set_default_value( '50,140,230,1' )
+				 ->set_is_responsive(true)
+				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_deco_link' )
-			     ->set_title( __( 'Link Decoration', 'sv100' ) )
-			     ->set_default_value( 'underline' )
-			     ->set_is_responsive(true)
-			     ->set_options( array(
-				     'none'					=> __( 'None', 'sv100' ),
-				     'underline'			=> __( 'Underline', 'sv100' ),
-				     'underline_dashed'	=> __( 'Underline Dashed', 'sv100' ),
-			     ) )
-			     ->load_type( 'select' );
+				 ->set_title( __( 'Link Decoration', 'sv100' ) )
+				 ->set_default_value( 'underline' )
+				 ->set_is_responsive(true)
+				 ->set_options( array(
+					 'none'					=> __( 'None', 'sv100' ),
+					 'underline'			=> __( 'Underline', 'sv100' ),
+					 'underline_dashed'	=> __( 'Underline Dashed', 'sv100' ),
+				 ) )
+				 ->load_type( 'select' );
 			
 			// Link Settings (Hover/Focus)
 			$this->get_setting( 'text_color_link_hover' )
-			     ->set_title( __( 'Link Color', 'sv100' ) )
-			     ->set_default_value( '50,140,230,1' )
-			     ->set_is_responsive(true)
-			     ->load_type( 'color' );
+				 ->set_title( __( 'Link Color', 'sv100' ) )
+				 ->set_default_value( '50,140,230,1' )
+				 ->set_is_responsive(true)
+				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_deco_link_hover' )
-			     ->set_title( __( 'Link Decoration', 'sv100' ) )
-			     ->set_default_value( 'none' )
-			     ->set_options( array(
-				     'none'					=> __( 'None', 'sv100' ),
-				     'underline'			=> __( 'Underline', 'sv100' ),
-				     'underline_dashed'	=> __( 'Underline Dashed', 'sv100' ),
-			     ) )
-			     ->set_is_responsive(true)
-			     ->load_type( 'select' );
+				 ->set_title( __( 'Link Decoration', 'sv100' ) )
+				 ->set_default_value( 'none' )
+				 ->set_options( array(
+					 'none'					=> __( 'None', 'sv100' ),
+					 'underline'			=> __( 'Underline', 'sv100' ),
+					 'underline_dashed'	=> __( 'Underline Dashed', 'sv100' ),
+				 ) )
+				 ->set_is_responsive(true)
+				 ->load_type( 'select' );
 
 			return $this;
 		}
@@ -173,7 +173,7 @@
 				$this->get_setting( 'sidebar_' . $i . '_alignment_content' )
 					->set_title( __( 'Header Bar - ' . $i, 'sv100' ) )
 					->set_options( array(
-						'left'	    => __( 'Left', 'sv100' ),
+						'left'		=> __( 'Left', 'sv100' ),
 						'center'	=> __( 'Center', 'sv100' ),
 						'right'		=> __( 'Right', 'sv100' ),
 					) )
@@ -190,8 +190,8 @@
 			
 			// Register Styles
 			$this->get_script( 'sidebar_default' )
-			     ->set_path( 'lib/css/common/sidebars.css' )
-			     ->set_inline( true );
+				 ->set_path( 'lib/css/common/sidebars.css' )
+				 ->set_inline( true );
 			
 			return $this;
 		}
