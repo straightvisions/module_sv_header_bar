@@ -11,7 +11,6 @@
 				->set_section_template_path()
 				->set_section_order(2000)
 				->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 8h24v16h-24v-16zm0-8v6h24v-6h-24z"/></svg>')
-				->register_sidebars()
 				->get_root()
 				->add_section( $this );
 		}
@@ -39,6 +38,19 @@
 				 ->set_default_value( '1300px' )
 				 ->set_is_responsive( true )
 				 ->load_type( 'select' );
+
+			$this->get_setting( 'sidebar_1' )
+				->set_title( __( 'Sidebar 1', 'sv100' ) )
+				->set_description( __( 'Select Sidebar for Position 1.', 'sv100' ) )
+				->set_options( $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_settings_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100')) )
+				->load_type( 'select' );
+
+			$this->get_setting( 'sidebar_2' )
+				->set_title( __( 'Sidebar 2', 'sv100' ) )
+				->set_description( __( 'Select Sidebar for Position 2.', 'sv100' ) )
+				->set_options( $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_settings_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100')) )
+				->load_type( 'select' );
+
 
 			// Font
 			$this->get_setting( 'font' )
@@ -195,36 +207,21 @@
 			
 			return $this;
 		}
-		
-		protected function register_sidebars(): sv_header_bar {
-			if ( $this->get_module( 'sv_sidebar' ) ) {
-				$this->get_module( 'sv_sidebar' )
-					->create( $this, $this->get_prefix(1) )
-					->set_title( __( 'Header Bar - 1', 'sv100' ) )
-					->set_desc( __( 'Widgets in this sidebar will be shown.', 'sv100' ) )
-					->load_sidebar()
-
-					->create( $this, $this->get_prefix(2) )
-					->set_title( __( 'Header Bar - 2', 'sv100' ) )
-					->set_desc( __( 'Widgets in this sidebar will be shown.', 'sv100' ) )
-					->load_sidebar();
-			}
-
-			return $this;
-		}
 
 		public function has_header_content(): bool {
-			$check = false;
-			if ( $this->get_module( 'sv_sidebar' ) ) {
-
-				for ( $i = 1; $i < 3; $i++ ) {
-					if ( $this->get_module( 'sv_sidebar' )->load( $this->get_prefix($i) ) ) {
-						$check = true;
-					}
-				}
+			if ( !$this->get_module( 'sv_sidebar' ) ) {
+				return false;
 			}
 
-			return $check;
+			if( $this->get_module( 'sv_sidebar' )->load( $this->get_setting('sidebar_1')->get_data() ) ) {
+				return true;
+			}
+
+			if( $this->get_module( 'sv_sidebar' )->load( $this->get_setting('sidebar_2')->get_data() ) ) {
+				return true;
+			}
+
+			return false;
 		}
 		public function load( $settings = array() ): string {
 			if(is_admin() || !$this->has_header_content()){
