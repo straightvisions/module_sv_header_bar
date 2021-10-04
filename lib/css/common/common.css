@@ -9,6 +9,7 @@
 
 .sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner p{
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	margin:0;
 }
