@@ -5,7 +5,3 @@
 	display:flex;
 	gap: 30px 20px;
 }
-
-.sv100_sv_header_bar_wrapper .widget{
-	flex-basis:100%;
-}
