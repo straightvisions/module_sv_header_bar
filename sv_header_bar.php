@@ -201,7 +201,7 @@
 			parent::register_scripts();
 			
 			// Register Styles
-			$this->get_script( 'sidebar_default' )
+			$this->get_script( 'sidebar' )
 				 ->set_path( 'lib/css/common/sidebars.css' )
 				 ->set_inline( true );
 			
