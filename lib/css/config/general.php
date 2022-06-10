@@ -6,13 +6,11 @@
 			: '.sv100_sv_header_bar_wrapper',
 		array_merge(
 			$module->get_setting('max_width')->get_css_data('max-width'),
-			$module->get_setting('bg_color')->get_css_data('background-color'),
+			$module->get_setting('bg_color')->get_css_data('background-color')
 		)
 	);
 
 	echo $_s->build_css(
 		'.sv100_sv_header_bar_wrapper .sv100_sv_header_bar_inner',
-		array_merge(
-			$module->get_setting('max_width_inner')->get_css_data('max-width'),
-		)
+		$module->get_setting('max_width_inner')->get_css_data('max-width')
 	);
